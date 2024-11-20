@@ -24,10 +24,11 @@ def main():
     rule_monitor.start()
 
     try:
-        firewall.logger.log("Starting packet capture...")
+        # firewall.logger.log("Starting packet capture...")
         sniff(prn=lambda pkt: packet_handler(pkt, firewall), store=False)
     except KeyboardInterrupt:
-        firewall.logger.log("Stopping packet capture...")
+        # firewall.logger.log("Stopping packet capture...")
+        pass
     finally:
         rule_monitor.stop()
 

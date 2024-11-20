@@ -23,7 +23,7 @@ class StatefulFirewall:
     def update_rules(self, rules: list[Rule]):
         """Update the list of firewall rules."""
         self.rules = rules
-        self.logger.log("Firewall rules have been updated.")
+        # self.logger.log("Firewall rules have been updated.")
 
     def check_packet(self, packet) -> str:
         src_ip, dst_ip, src_port, dst_port, protocol = self.extract_packet_info(packet)
@@ -83,7 +83,8 @@ class StatefulFirewall:
                 arp_layer = packet[ARP]
                 return arp_layer.psrc, arp_layer.pdst, 'any', 'any', 'ARP'
         except Exception as e:
-            self.logger.log(f"Error extracting packet info: {e}")
+            # self.logger.log(f"Error extracting packet info: {e}")
+            pass
 
         return None, None, None, None, 'Invalid'
 
